@@ -1,0 +1,64 @@
+body {
+	margin: 0;
+	font-size: 30px;
+	background-image: url('/thumb-1920-959206.png');
+	font-family: 'Jost', sans-serif;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.header {
+	margin: 0 auto;
+	background-color: rgba(189, 4, 22, 0.5)
+}
+
+.header__title {
+	margin-left: 20px;
+}
+
+.tableSec__title {
+	margin: 0 auto;
+	margin-left: 30px;
+}
+
+.tableSec__btn {
+	border: 0;
+	font-size: 13px;
+	background-color: rgba(189, 4, 22, 0.5);
+	border-radius: 25px;
+	margin-left: 30px;
+	padding: 10px 20px;
+}
+
+.tableSec__table {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+td {
+	padding: 0 20px;
+	border: 2px solid gray;
+	background-color: rgba(199, 199, 199, 0.829);
+}
+
+.addTime__title {
+	margin-top: 40px;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	font-size: 17px;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.addTime__label {
+	color: white;
+	margin-left: 30px;
+}
+
+.addTime__input {
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 18px;
+}

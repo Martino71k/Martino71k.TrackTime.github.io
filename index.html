@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Таблица рекордов</title>
+	<link rel="stylesheet" href="/style.css"></link>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="header">
+		<h1 class="header__title">Таблица рекордов</h1>
+	</header>
+	<section class="tableSec">
+		<h2 class="tableSec__title">Трек: S1 test track</h2>
+		<button class="tableSec__btn">Переключить трек</button>
+		<table id="tab1" class="tableSec__table">
+			<tr>
+				<td>Марка</td>
+				<td>Время</td>
+			</tr>
+			<tr>
+				<td id="inputCar" id="new_inp">BMW</td>
+				<td id="inputTime">2:02.234</td>
+				<tr>
+			</table>
+	</section>
+	<section class="addTime">
+		<h3 class="addTime__title">Добавить время</h3>
+		<div id="car">
+			<label class="addTime__label">Вввести марку авто</label>
+			<input class="addTime__input" id='carName' value='' placeholder="например: BMW M5 '09 ">
+			<button  onclick="elemMark()" id="elem">Ввод</button>
+		</div>
+		<div id="time" style="display: none;">
+			<label class="addTime__label">Вввести время</label>
+			<input class="addTime__input" id='carTime' value='' placeholder="например: 2:30,132">
+			<button onclick="elemTime()" id="elemTime">Ввод</button>
+		</div>
+		<p id="demo">Yes</p>
+	</section>
+
+
+<script>
+	let isClicked = false
+	let row
+	let elemMark = () => {
+		let d = document;
+		let name;
+		let time
+		let car 
+		let carTime
+
+		
+		name = d.getElementById("carName").value;
+		//carTime = d.getElementById('carTime').value;
+
+		// Находим нужную таблицу
+		let tbody = d.getElementById("tab1").getElementsByTagName("TBODY")[0];
+
+		// Создаем строку таблицы и добавляем ее
+		row = d.createElement("TR");
+		tbody.appendChild(row);
+
+		// Создаем ячейки в вышесозданной строке
+		// и добавляем тх
+		let td1 = d.createElement("TD");
+		//let td2 = d.createElement('TD')
+		row.appendChild(td1)
+		//row.appendChild(td2)
+		td1.innerHTML = name;
+
+		//td2.innerHTML = carTime
+		isClicked = true
+		console.log(isClicked)
+		time = d.getElementById('time')
+		car = d.getElementById('car')
+		if (isClicked === true) {
+			car.style.display = 'none'
+			time.style.display = 'block'
+		}
+		
+	}
+	
+	let elemTime = () => {
+		let d = document;
+		let carTime
+		let time
+		carTime = d.getElementById('carTime').value;			
+		let td2 = d.createElement('TD')
+		row.appendChild(td2)
+		td2.innerHTML = carTime
+		console.log(td2)
+		isClicked = false
+		console.log(isClicked)
+		time = d.getElementById('time')
+		car = d.getElementById('car')
+		if (isClicked === false) {
+			car.style.display = 'block'
+			time.style.display = 'none'
+			
+		}
+	}
+
+let carScore = {
+  car: "shelby",
+  time: "2:20"
+};
+
+function newScore(car, time) {
+	this.carName = car;
+	this.carTime = time;
+}
+let newHighscore = new newScore("Ferrari", '02:22');
+document.getElementById("demo").innerHTML =
+"new record is " + newHighscore.carName + " " + newHighscore.carTime + "."; 
+
+let car = ["shelby", "Ferrarri", "BMW m3 05"];
+const carTime = (time, cars) => {
+  let highscore = [];
+  for (let car of cars) {
+    console.log(car);
+  }
+};
+
+	</script>
+</body>
+</html>
