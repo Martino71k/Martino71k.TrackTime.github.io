@@ -1,5 +1,8 @@
+let row
 let isClicked = false
-	let row
+let inputCar
+let inputTime = document.getElementById('carTime')
+	
 	let elemMark = () => {
 		let d = document;
 		let name;
@@ -25,7 +28,7 @@ let isClicked = false
 		row.appendChild(td1)
 		//row.appendChild(td2)
 		td1.innerHTML = name;
-
+		
 		//td2.innerHTML = carTime
 		isClicked = true
 		console.log(isClicked)
@@ -34,10 +37,12 @@ let isClicked = false
 		if (isClicked === true) {
 			car.style.display = 'none'
 			time.style.display = 'block'
+			inputTime.focus()
 		}
 		
 	}
 	
+
 	let elemTime = () => {
 		let d = document;
 		let carTime
@@ -57,6 +62,23 @@ let isClicked = false
 			
 		}
 	}
+
+	inputCar = document.getElementById('carName')
+	inputCar.addEventListener('keypress', (keyPressed) => {
+		const keyEnter = 13;
+		if (keyPressed.which == keyEnter) {
+			elemMark();
+		}
+	})
+
+	inputTime = document.getElementById('carTime')
+	inputTime.addEventListener('keypress', (keyPressed) => {
+		const keyEnter = 13;
+		if (keyPressed.which == keyEnter) {
+			elemTime();
+		}
+	})
+
 
 let carScore = {
   car: "shelby",
