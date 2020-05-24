@@ -1,69 +1,76 @@
 let row
 let isClicked = false
-let inputCar
+let inputCar = document.getElementById('carName')
 let inputTime = document.getElementById('carTime')
-	
+
 	let elemMark = () => {
 		let d = document;
 		let name;
-		let time
-		let car 
-		let carTime
+		let timeBlock
+		let carBlock
 
-		
 		name = d.getElementById("carName").value;
-		//carTime = d.getElementById('carTime').value;
-
-		// Находим нужную таблицу
 		let tbody = d.getElementById("tab1").getElementsByTagName("TBODY")[0];
-
-		// Создаем строку таблицы и добавляем ее
 		row = d.createElement("TR");
+		row.classList.add('addTime__row')
 		tbody.appendChild(row);
-
-		// Создаем ячейки в вышесозданной строке
-		// и добавляем тх
-		let td1 = d.createElement("TD");
-		//let td2 = d.createElement('TD')
-		row.appendChild(td1)
-		//row.appendChild(td2)
-		td1.innerHTML = name;
 		
-		//td2.innerHTML = carTime
+		/*let deleteButton = () => {
+			let allRow = document.getElementsByClassName('addTime__row')
+			for (let i = 0; i < allRow.length; i++) {
+				console.log(allRow[i])
+				let span = document.createElement("SPAN");
+  		  span.className = "addTime__deleteBtn";
+				allRow[i].appendChild(span);
+				
+			}
+		
+		}
+		deleteButton()
+		*/
+		let allRow = d.getElementsByClassName('addTime__row')
+		for (const row of allRow) {
+			row.onclick = () => {
+				row.style.display = 'none'
+			}
+		}
+
+		let td1 = d.createElement("TD");
+		td1.classList.add('addTime__cell')
+		row.appendChild(td1)
+		td1.innerHTML = name;
 		isClicked = true
 		console.log(isClicked)
-		time = d.getElementById('time')
-		car = d.getElementById('car')
+
+		timeBlock = d.getElementById('timeBlock')
+		carBlock = d.getElementById('carBlock')
 		if (isClicked === true) {
-			car.style.display = 'none'
-			time.style.display = 'block'
+			carBlock.style.display = 'none'
+			timeBlock.style.display = 'block'
 			inputTime.focus()
+			inputTime.value = ''
 		}
-		
 	}
-	
 
 	let elemTime = () => {
 		let d = document;
 		let carTime
-		let time
+		let timeBlock
 		carTime = d.getElementById('carTime').value;			
 		let td2 = d.createElement('TD')
 		row.appendChild(td2)
 		td2.innerHTML = carTime
-		console.log(td2)
 		isClicked = false
 		console.log(isClicked)
-		time = d.getElementById('time')
-		car = d.getElementById('car')
+		timeBlock = d.getElementById('timeBlock')
+		carBlock = d.getElementById('carBlock')
 		if (isClicked === false) {
-			car.style.display = 'block'
-			time.style.display = 'none'
-			
+			carBlock.style.display = 'block'
+			timeBlock.style.display = 'none'
+			inputCar.value = ''
 		}
 	}
-
-	inputCar = document.getElementById('carName')
+	
 	inputCar.addEventListener('keypress', (keyPressed) => {
 		const keyEnter = 13;
 		if (keyPressed.which == keyEnter) {
@@ -71,13 +78,13 @@ let inputTime = document.getElementById('carTime')
 		}
 	})
 
-	inputTime = document.getElementById('carTime')
 	inputTime.addEventListener('keypress', (keyPressed) => {
 		const keyEnter = 13;
 		if (keyPressed.which == keyEnter) {
 			elemTime();
 		}
 	})
+
 
 
 let carScore = {
